@@ -14,7 +14,9 @@ Coded by www.creative-tim.com
 */
 
 import { useState, useEffect, useMemo } from "react";
-
+import constants from "./constants";
+import axios from "axios";
+import qs from "qs";
 // react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
@@ -68,6 +70,10 @@ export default function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
+
+  const { USER, JWT, IS_LOGGED_IN } = constants.state;
+const { ERROR_MESSAGE, SUCCESS_MESSAGE, INFO_MESSAGE, WARNING_MESSAGE } = constants.status;
+
 
   // Cache for the rtl
   useMemo(() => {
